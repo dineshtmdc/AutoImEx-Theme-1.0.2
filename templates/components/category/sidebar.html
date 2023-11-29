@@ -1,0 +1,25 @@
+<nav>
+    <!-- All categories -->
+    {{> components/autoimex/sidebar/side-all-categories}}
+    <!-- Shop by price -->
+    {{#if category.faceted_search_enabled}}
+        {{> components/faceted-search/index category}}
+    {{else}}
+        {{> components/category/shop-by-price shop_by_price=category.shop_by_price category_url=category.url}}
+        
+        {{#if shop_by_brand}}
+            {{> components/autoimex/sidebar/side-shop-by-brand}}
+        {{/if}}
+
+        {{#if products.top_sellers}}
+            {{> components/products/top-sidebar products=products.top_sellers products_new=products.new}}
+        {{/if}}
+
+        {{#if products.featured}}
+            {{> components/products/feature-sidebar products=products.featured products_new=products.new}}
+        {{/if}}
+
+        {{> components/autoimex/side-custom-block}}
+
+    {{/if}}
+</nav>

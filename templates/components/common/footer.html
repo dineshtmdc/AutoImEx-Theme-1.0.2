@@ -1,0 +1,105 @@
+<footer class="footer">
+    <div class="autoimex_topFooter">
+        <div class="autoimex_container">
+           {{#if settings.show_newsletter_box}}
+                {{> components/common/subscription-form}}
+            {{/if}}
+        </div>
+    </div>
+    <div class="autoimex_middleFooter">
+        <div class="autoimex_container">
+            <div class="footer-info autoimex_footer-info">
+                <div class="footer-info-col footer-info-col--small footer-dropdownmobile">
+                    <h5 class="footer-info-heading">Further info</h5>
+                    <ul class="footer-info-list">
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/about-us/">About Us</a></li>
+                        <li><a href="{{urls.gift_certificate.purchase}}">Gift Certificates</a></li>
+                        <li><a href="/rss-syndication/">RSS Syndication</a></li>
+                        <li><a href="/shipping-returns/">Shipping & Returns</a></li>
+                        <li><a href="/theme-styles/">Theme Styles</a></li>
+                        <li><a href="{{urls.sitemap}}">Sitemap</a></li>
+                        <li><a href="/contact-us/">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-info-col footer-info-col--small footer-dropdownmobile">
+                    <h5 class="footer-info-heading">Shop</h5>
+                    <ul class="footer-info-list">
+                        {{#each categories}}
+                            <li class="menu-{{id}}">
+                                <a href="{{url}}">{{name}}</a>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="footer-info-col footer-info-col--small footer-dropdownmobile">
+                    <h5 class="footer-info-heading">Top Brands</h5>
+                    <ul class="footer-info-list">
+                        {{#each (limit shop_by_brand 8)}}
+                            <li>
+                                <a href="{{url}}">{{name}}</a>
+                            </li>
+                        {{/each}}
+                        <li>
+                            <a class="view-all" href="{{urls.brands}}"><svg><use xlink:href="#icon-down-top"/></svg> {{lang 'common.view_all'}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-info-col">
+                    <div class="footer-info-col footer-dropdownmobile footer-right-col">
+                        <h5 class="footer-info-heading">Store Location</h5>
+                         <div class="content">
+                            <p class="store-address">{{nl2br settings.address}}</p>
+                            <p class="store-phone">Phone: {{settings.phone_number}} </p>
+                            <p class="store-email"><a href="mailto:info@autoimex.com.au">info@autoimex.com.au</a></p>
+                        </div>
+                    </div>
+                    <div class="footer-info-col footer-dropdownmobile footer-right-col">
+                        <h5 class="footer-info-heading">Stay Connected</h5>
+                        {{> components/common/social-links}}
+                    </div>
+                    <div class="seal-logos">
+                        <a href="#"><img src="https://cdn11.bigcommerce.com/s-4fncb3zo7t/product_images/uploaded_images/norton.png" alt="Norton"></a>
+                        <a href="#"><img src="https://cdn11.bigcommerce.com/s-4fncb3zo7t/product_images/uploaded_images/etrust.png" alt="Etrust"></a>
+                        <a href="#"><img src="https://cdn11.bigcommerce.com/s-4fncb3zo7t/product_images/uploaded_images/authorized-net.png" alt="Authorized.net"></a>
+                        <a href="#"><img src="https://cdn11.bigcommerce.com/s-4fncb3zo7t/product_images/uploaded_images/accredited-business.png?t=1556164090&_ga=2.190362027.143949967.1555899540-1383760574.1555574393" alt="Accredited Business"></a>
+                    </div>
+               </div>
+            </div>
+        </div>
+    </div>
+    <div class="autoimex_contactUs">
+        <div class="autoimex_container">
+            <div class="contactUs">
+                <p>Need help ? We're available at {{settings.phone_number}}(9:30am - 5:30pm Monday-Saturday)<span>•</span> Email us at: <a href="mailto:info@autoimex.com.au">info@autoimex.com.au</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="autoimex_bottomFooter">
+        <div class="autoimex_container">
+            <div class="left-footer-texts">
+                {{#if theme_settings.show_copyright_footer}}
+                    <div class="footer-copyright">
+                        <p class="powered-by">&copy; {{moment format="YYYY"}} {{settings.store_name}} </p>
+                    </div>
+                {{/if}}
+                {{#if theme_settings.show_powered_by}}
+                    <div class="footer-copyright">
+                        <p class="powered-by">Free Bigcommerce Template. Powered by Bigcommerce</p>
+                    </div>
+                {{/if}}
+                {{> components/common/payment-icons}}
+            </div>
+            <div class="autoimex_logo">
+                 <a href="https://www.linkedin.com/in/dinesh-tennakoon/" target="_blank" rel="noopener">
+                    <span class="text">Bigcommerce Themes by Dinesh Tennakoon</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+{{#if theme_settings.autoimex_backtotop}}
+     <div id="back-to-top">
+        <a href="javascript:void(0)" class="fade-out"><i><svg class="icon icon-close"><use xlink:href="#keyboard-arrow-up"></use></i></a>
+    </div>
+{{/if}}
